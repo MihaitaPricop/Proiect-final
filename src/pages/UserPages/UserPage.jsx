@@ -53,7 +53,10 @@ const UserPage = () => {
       </h1>
       <section className="w-full mx-auto mt-2 bg-white p-6 rounded-lg shadow-md ">
         <h3>Your trips map!</h3>
-        <div ref={mapContainerRef} className="h-[400px] w-full "></div>
+        <div
+          ref={mapContainerRef}
+          className="h-[400px] w-full relative z-0"
+        ></div>
       </section>
       <section className="w-full mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
         {/* <h3>Looking for a new destination?</h3> */}
