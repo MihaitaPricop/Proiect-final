@@ -39,7 +39,7 @@ const UserLayout = ({ children }) => {
             {user ? `${user.username}'s Dashboard` : "Dashboard"}
           </Link>
 
-          {/* Hamburger Button for Mobile */}
+          {/* Hamburger pentru Mobile */}
           <button
             className="block md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
@@ -74,7 +74,7 @@ const UserLayout = ({ children }) => {
         </div>
       </nav>
 
-      {/* Sidebar for Quick Access */}
+      {/* Quick Access */}
       <aside
         className={`w-48 bg-gray-200 p-6 pt-10 fixed top-16 bottom-0 flex flex-col shadow-lg transition-all duration-300 md:block ${
           menuOpen ? "block" : "hidden"

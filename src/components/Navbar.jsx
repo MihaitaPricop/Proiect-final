@@ -11,7 +11,6 @@ const Navbar = () => {
   return (
     <header className="bg-[#05A8AA] w-full h-[82px] opacity-100 py-4 px-4 flex justify-center items-center">
       <div className="container flex items-center justify-between">
-        {/* Logo Section */}
         <div className="flex items-center">
           <Link
             to="/about"
@@ -21,7 +20,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Hamburger Menu for Small Screens */}
         <button
           className="block md:hidden text-white focus:outline-none"
           onClick={toggleMenu}
@@ -42,7 +40,6 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Navigation Links */}
         <nav
           className={`absolute md:static z-50 top-[82px] left-0 w-full md:w-auto md:flex flex-col md:flex-row items-center bg-[#05A8AA] md:bg-transparent transition-all duration-300 ${
             menuOpen ? "block" : "hidden"

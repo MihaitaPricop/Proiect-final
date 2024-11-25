@@ -44,6 +44,7 @@ const UserTripPostsPage = () => {
     console.log(selectedOption);
     console.log("User Posts", userPosts);
 
+    // cream o clona a state-ului de userPosts pentru a evita direct mutation
     let sortedUserPosts = [...userPosts].sort((a, b) => {
       const selectedSort = selectedOption.value;
       if (selectedSort === "name-asc") {

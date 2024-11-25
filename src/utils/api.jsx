@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// Environment variables for server URLs
+// Variabile de mediu pentru URL-urile serverului
 const jsonServerUrl = import.meta.env.VITE_JSON_SERVER_URL;
 const expressServerUrl = import.meta.env.VITE_EXPRESS_SERVER_URL;
 
@@ -12,13 +12,13 @@ const api = axios.create({
   },
 });
 
-// Error handling
+// Gestionarea erorilor
 const handleError = (error) => {
-  console.error("API call error", error);
-  toast.error("Something went wrong. Please try again.");
+  console.error("Eroare la apelul API", error);
+  toast.error("Ceva nu a mers bine. Vă rugăm să încercați din nou.");
 };
 
-// Upload images to the Express server
+// Încărcăm imagini pe serverul Express
 export const uploadImages = async (images) => {
   const formData = new FormData();
   images.forEach((image) => formData.append("images", image));
@@ -35,18 +35,18 @@ export const uploadImages = async (images) => {
   }
 };
 
-// Create a new post (including image URLs)
+// Creăm un post nou (inclusiv URL-uri pentru imagini)
 export const createPost = async (postData) => {
   try {
     const response = await api.post(`${jsonServerUrl}/posts`, postData);
-    toast.success("Post created successfully!");
+    toast.success("Postare creată cu succes!");
     return response.data;
   } catch (error) {
     handleError(error);
   }
 };
 
-// Fetch all posts
+// Obținem toate postările
 export const fetchPosts = async () => {
   try {
     const response = await api.get(`${jsonServerUrl}/posts`);
@@ -56,7 +56,7 @@ export const fetchPosts = async () => {
   }
 };
 
-// Fetch post by ID
+// Obținem postare după ID
 export const fetchPostByID = async (postId) => {
   try {
     const response = await api.get(`${jsonServerUrl}/posts/${postId}`);
@@ -66,7 +66,7 @@ export const fetchPostByID = async (postId) => {
   }
 };
 
-// Fetch post by userId
+// Obținem postare după userId
 export const fetchPostByUserID = async (userId) => {
   try {
     const response = await api.get(`${jsonServerUrl}/posts?userId=${userId}`);
@@ -76,74 +76,74 @@ export const fetchPostByUserID = async (userId) => {
   }
 };
 
-// Update a post
+// Actualizăm o postare
 export const updatePost = async (postId, updatedData) => {
   try {
     const response = await api.put(
       `${jsonServerUrl}/posts/${postId}`,
       updatedData
     );
-    toast.success("Post updated successfully!");
+    toast.success("Postare actualizată cu succes!");
     return response.data;
   } catch (error) {
     handleError(error);
   }
 };
 
-// Delete a post
+// Ștergem o postare
 export const deletePost = async (postId) => {
   try {
     await api.delete(`${jsonServerUrl}/posts/${postId}`);
-    toast.success("Post deleted successfully!");
+    toast.success("Postare ștearsă cu succes!");
   } catch (error) {
     handleError(error);
   }
 };
 
-// Add a comment to post
+// Adăugăm un comentariu la postare
 export const addComment = async (postId, commentData) => {
   try {
     const response = await api.post(
       `${jsonServerUrl}/posts/${postId}/comments`,
       commentData
     );
-    toast.success("Comment added successfully!");
+    toast.success("Comentariu adăugat cu succes!");
     return response.data;
   } catch (error) {
     handleError(error);
   }
 };
 
-// Like a post
+// Apreciem o postare
 export const likePost = async (postId, userId) => {
   try {
     const response = await api.post(`${jsonServerUrl}/posts/${postId}/likes`, {
       userId,
     });
-    toast.success("Post liked!");
+    toast.success("Postare apreciată!");
     return response.data;
   } catch (error) {
     handleError(error);
   }
 };
 
-// Rate a post
+// Evaluăm o postare
 export const ratePost = async (postId, ratingData) => {
   try {
     const response = await api.post(
       `${jsonServerUrl}/posts/${postId}/ratings`,
       ratingData
     );
-    toast.success("Post rated!");
+    toast.success("Postare evaluată!");
     return response.data;
   } catch (error) {
     handleError(error);
   }
 };
 
-/** ---------------------------------------GROUPS------------------------------------------------- */
+/** ---------------------------------------GRUPURI------------------------------------------------- */
 
-// Fetch a single group by ID
+// Obținem un grup după ID
 export const fetchGroupById = async (groupId) => {
   try {
     const response = await api.get(`${jsonServerUrl}/groups/${groupId}`);
@@ -153,7 +153,7 @@ export const fetchGroupById = async (groupId) => {
   }
 };
 
-// Fetch all groups
+// Obținem toate grupurile
 export const fetchGroups = async () => {
   try {
     const response = await api.get(`${jsonServerUrl}/groups`);
@@ -165,29 +165,29 @@ export const fetchGroups = async () => {
 
 export const fetchGroupsForUser = async (userId) => {
   try {
-    // Fetch all groups
+    // Obținem toate grupurile
     const groupsResponse = await api.get(`${jsonServerUrl}/groups`);
     const userResponse = await api.get(`${jsonServerUrl}/users/${userId}`);
 
     const user = userResponse.data;
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Utilizatorul nu a fost găsit");
 
-    // Combine groups where user is a member or owner
+    // Combinăm grupurile unde utilizatorul este membru sau proprietar
     const userGroups = groupsResponse.data.filter(
       (group) =>
-        group.ownerId === userId || // User owns the group
-        (Array.isArray(group.members) && group.members.includes(userId)) // User is a member
+        group.ownerId === userId || // Utilizatorul deține grupul
+        (Array.isArray(group.members) && group.members.includes(userId)) // Utilizatorul este membru
     );
 
     return userGroups;
   } catch (error) {
-    console.error("Error fetching user groups:", error);
+    console.error("Eroare la obținerea grupurilor utilizatorului:", error);
     throw error;
   }
 };
 
-// Create a group
+// Creăm un grup
 
 export const createGroup = async (groupData, userId) => {
   try {
@@ -217,16 +217,16 @@ export const createGroup = async (groupData, userId) => {
 
     await api.patch(`/users/${userId}`, updatedUser);
 
-    toast.success("Group created successfully!");
+    toast.success("Grup creat cu succes!");
     return newGroup;
   } catch (error) {
-    console.error("Error creating group:", error);
-    toast.error("Failed to create the group.");
+    console.error("Eroare la crearea grupului:", error);
+    toast.error("Eșec la crearea grupului.");
     throw error;
   }
 };
 
-// Edit a group
+// Edităm un grup
 export const editGroup = async (groupId, updatedData) => {
   try {
     const response = await api.patch(
@@ -235,79 +235,77 @@ export const editGroup = async (groupId, updatedData) => {
     );
     return response.data;
   } catch (error) {
-    console.error("Error editing group:", error);
+    console.error("Eroare la editarea grupului:", error);
     throw error;
   }
 };
 
-// Delete group and update users
+// Stergem grupul si facem update la utilizatori
 export const deleteGroupAndUpdateUsers = async (groupId) => {
   try {
     const usersResponse = await api.get(`${jsonServerUrl}/users`);
     const users = usersResponse.data;
 
-    // Update users to remove the group ID from their `groupsMemberOf`
+    // Actualizăm utilizatorii pentru a elimina ID-ul grupului din `groupsMemberOf`
     const updatedUsers = users.map((user) => {
       if (user.groupsMemberOf?.includes(groupId)) {
         return {
           ...user,
-          groupsMemberOf: user.groupsMemberOf.filter((id) => id !== groupId), // Remove group ID
+          groupsMemberOf: user.groupsMemberOf.filter((id) => id !== groupId), // Eliminăm ID-ul grupului
         };
       }
       return user;
     });
 
-    // Update each user on the server
+    // Actualizăm fiecare utilizator pe server
     await Promise.all(
       updatedUsers.map((user) =>
         api.patch(`${jsonServerUrl}/users/${user.id}`, user)
       )
     );
 
-    // Delete the group
+    // Ștergem grupul
     await api.delete(`${jsonServerUrl}/groups/${groupId}`);
   } catch (error) {
-    console.error("Error deleting group:", error);
+    console.error("Eroare la ștergerea grupului:", error);
     throw error;
   }
 };
 
-// Add a member to a group
+// Adaugam membru nou in grup
 export const addMemberToGroup = async (groupId, email) => {
   try {
     const userResponse = await api.get(`${jsonServerUrl}/users?email=${email}`);
     const user = userResponse.data[0];
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Utilizatorul nu a fost găsit");
 
-    // Add the group ID to the user's groupsMemberOf
+    // adaugam group ID la groupsMemberOf
     const updatedUser = {
       ...user,
-      groupsMemberOf: [...new Set([...user.groupsMemberOf, groupId])], // Avoid duplicates
+      groupsMemberOf: [...new Set([...user.groupsMemberOf, groupId])], // evitam duplicate
     };
 
     await api.patch(`${jsonServerUrl}/users/${user.id}`, updatedUser);
 
-    // Fetch the group by ID
     const groupResponse = await api.get(`${jsonServerUrl}/groups/${groupId}`);
     const group = groupResponse.data;
 
-    // Add the user ID to the group's members
+    // Adaugam user ID ul now la membrii grupului
     const updatedGroup = {
       ...group,
-      members: [...new Set([...group.members, user.id])], // Avoid duplicates
+      members: [...new Set([...group.members, user.id])], // Evităm duplicate
     };
 
     await api.patch(`${jsonServerUrl}/groups/${groupId}`, updatedGroup);
 
     return { updatedUser, updatedGroup };
   } catch (error) {
-    console.error("Error adding member to group:", error);
-    throw error;
+    console.error("Eroare la adăugarea membrului în grup:", error);
   }
 };
 
-// -----------------------------------Planning --------------------------------------------------
+// -----------------------------------Planificare --------------------------------------------------
 
 export const fetchPlanningByGroupID = async (groupId) => {
   try {
@@ -317,7 +315,7 @@ export const fetchPlanningByGroupID = async (groupId) => {
 
     return groupPlans;
   } catch (error) {
-    console.error("Error fetching planning data:", error);
+    console.error("Eroare la obținerea datelor de planificare:", error);
   }
 };
 
@@ -325,44 +323,47 @@ export const fetchUserById = async (userId) => {
   try {
     const response = await fetch(`${jsonServerUrl}/users/${userId}`);
     if (!response.ok) {
-      throw new Error("Failed to fetch user data");
+      throw new Error("Eșec la obținerea datelor utilizatorului");
     }
     const data = await response.json();
     if (data && data.username) {
       return data;
     } else {
-      console.error(`User with ID ${userId} does not have a username`);
-      return { username: "Unknown User" };
+      console.error(`Utilizatorul cu ID-ul ${userId} nu are un username`);
+      return { username: "Utilizator Necunoscut" };
     }
   } catch (error) {
-    console.error(`Error fetching user with ID ${userId}:`, error);
-    return { username: "Error Fetching User" };
+    console.error(
+      `Eroare la obținerea utilizatorului cu ID-ul ${userId}:`,
+      error
+    );
+    return { username: "Eroare la obținerea utilizatorului" };
   }
 };
 
 export const saveGroupData = async (groupId, stepsData) => {
   try {
-    // Prepare the payload for the entire trip plan
+    // Date pentru planul întreg
     const tripPayload = {
       groupId: groupId,
       steps: stepsData.map((step) => ({
         stepNumber: step.stepNumber,
         name: step.name,
         details: step.details,
-        data: step.data || {}, // Populate the entered data for each step
+        data: step.data || {}, // Se populează pentru fiecare pas
         comments: step.comments || [],
       })),
-      status: "in-progress",
+      status: "în progres",
     };
     console.log(tripPayload);
-    // API call to save the trip planning data
+    // API pentru salvarea datelor despre planificare
     const response = await api.post(`${jsonServerUrl}/planning`, tripPayload);
 
-    toast.success("Trip planning data saved successfully!");
+    toast.success("Datele planificării au fost salvate cu succes!");
     return response.data;
   } catch (error) {
-    toast.error("Failed to save trip planning data.");
-    console.error("Error saving trip planning data:", error);
+    toast.error("Eroare la salvarea datelor planificării.");
+    console.error("Eroare la salvarea datelor planificării:", error);
     throw error;
   }
 };
