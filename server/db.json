@@ -1,0 +1,605 @@
+{
+  "users": [
+    {
+      "id": "user-1731497982806",
+      "username": "test2",
+      "email": "test2@gmail.com",
+      "password": "test2",
+      "profilePicture": "default-profile.jpg",
+      "groupsOwned": [
+        "testGroup2"
+      ],
+      "groupsMemberOf": [
+        "testGroup2",
+        "cdb5"
+      ]
+    },
+    {
+      "id": "user-1731568563064",
+      "username": "test1",
+      "email": "test1@gmail.com",
+      "password": "test1",
+      "profilePicture": "default-profile.jpg",
+      "groupsOwned": [
+        "8aa9"
+      ],
+      "groupsMemberOf": [
+        "testGroup2"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "testGroup2",
+      "name": "Adventure Enthusiasts",
+      "description": "Group for adventure lovers.",
+      "ownerId": "user-1731497982806",
+      "members": [
+        "user-1731568563064",
+        "user-1731497982806"
+      ],
+      "posts": [
+        {
+          "id": "post-unique-id",
+          "title": "Trip to the Alps",
+          "description": "Exploring the beautiful mountains!",
+          "createdAt": "2024-11-14T12:00:00Z",
+          "creatorId": "user-123456",
+          "polls": [
+            {
+              "id": "poll-unique-id",
+              "question": "What day should we leave?",
+              "options": [
+                {
+                  "id": "option-1",
+                  "text": "Friday",
+                  "votes": [
+                    "user-123456",
+                    "user-789012"
+                  ]
+                },
+                {
+                  "id": "option-2",
+                  "text": "Saturday",
+                  "votes": []
+                }
+              ]
+            }
+          ],
+          "comments": [
+            {
+              "id": "comment-unique-id",
+              "userId": "user-789012",
+              "comment": "Can't wait for this trip!",
+              "createdAt": "2024-11-14T13:00:00Z",
+              "editedAt": "2024-12-14T13:00:00Z"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-11-14T10:00:00Z"
+    },
+    {
+      "id": "cdb5",
+      "name": "Mountain Explorers - Test1",
+      "description": "A group for adventure enthusiasts who love to hike, explore, and conquer mountains. Join us to plan trips, share experiences, and discover new peaks to challenge ourselves.",
+      "ownerId": "user-1731568563064",
+      "members": [
+        "user-1731568563064",
+        "user-1731497982806"
+      ],
+      "posts": [],
+      "createdAt": "2024-11-20T10:00:57.445Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "2e13",
+      "title": "London City Break!!!",
+      "description": "London is a bustling metropolis blending historic landmarks like the Tower of London and Buckingham Palace with modern attractions. Explore world-class museums, stroll through Hyde Park, and experience diverse cuisine and vibrant markets in this iconic city.",
+      "destination": "London, UK",
+      "userId": "user-1731568563064",
+      "images": [
+        "/uploads/1731498851006-London1.jpg",
+        "/uploads/1731498851027-London2.jpg",
+        "/uploads/1731498851030-London3.jpg"
+      ],
+      "datePosted": "2024-11-13T11:54:11.046Z"
+    },
+    {
+      "id": "dd92",
+      "title": "Larnaca Dream!!!",
+      "description": "Larnaca, a beautiful coastal city in Cyprus, is known for its relaxed Mediterranean vibe, ancient ruins, and stunning beaches. Visit the historic Church of Saint Lazarus, stroll along the vibrant Finikoudes promenade, and enjoy warm Cypriot hospitality and seaside views.",
+      "destination": "Larnaca, Cyprus",
+      "userId": "user-1731568563064",
+      "images": [
+        "/uploads/1731570255987-Larnaca1.jpg",
+        "/uploads/1731570255996-Larnaca2.jpg"
+      ],
+      "datePosted": "2024-11-14T07:44:16.020Z"
+    },
+    {
+      "id": "f108",
+      "title": "A Journey Through Paris: The City of Lights",
+      "description": "Paris, the City of Light, enchants with landmarks like the Eiffel Tower and Notre Dame. Wander through charming neighborhoods, savor croissants in cozy cafés, and explore world-class museums like the Louvre and Musée d'Orsay. Paris offers romance, art, and timeless elegance.",
+      "destination": "Paris, France",
+      "userId": "user-1731568563064",
+      "images": [
+        "/uploads/1731572591900-Paris1.jpg",
+        "/uploads/1731572591935-Paris2.jpg"
+      ],
+      "datePosted": "2024-11-14T08:23:11.951Z"
+    },
+    {
+      "id": "ed60",
+      "title": "test trip",
+      "description": "Awesome",
+      "destination": "Iasi, Romania",
+      "userId": "user-1732004446636",
+      "images": [
+        "/uploads/1732004840696-Paris1.jpg"
+      ],
+      "datePosted": "2024-11-19T08:27:20.742Z"
+    },
+    {
+      "id": "5521",
+      "title": "Ciurea",
+      "description": "Awesome",
+      "destination": "Ciurea, Iasi",
+      "userId": "user-1732023557186",
+      "images": [
+        "/uploads/1732023589030-Paris1.jpg"
+      ],
+      "datePosted": "2024-11-19T13:39:49.047Z"
+    },
+    {
+      "id": "f298",
+      "title": "blsjdhgojalkx",
+      "description": "lksjhdbksjbLKH",
+      "destination": "shdishdi",
+      "userId": "user-1731568563064",
+      "images": [
+        "/uploads/1732028140338-Paris1.jpg"
+      ],
+      "datePosted": "2024-11-19T14:55:40.345Z"
+    }
+  ],
+  "planning": [
+    {
+      "id": "unique-planning-id",
+      "title": "Trip to the Alps",
+      "description": "A beautiful trip through the Alps...",
+      "datePosted": "2023-10-22T18:25:43.511Z",
+      "destination": "Alps, Switzerland",
+      "userId": "user-1731497982806",
+      "groupId": "cdb5",
+      "members": [
+        "user-1731497982806",
+        "user-1731568563064",
+        "user-1732005878495"
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Pick Destination",
+          "details": "Enter the destination for the trip.",
+          "data": {
+            "destination": "Alps, Switzerland"
+          },
+          "comments": [
+            {
+              "id": "comment-id-1",
+              "userId": "user-1731568563064",
+              "comment": "Great choice!",
+              "timestamp": "2023-10-23T18:25:43.511Z",
+              "likes": [
+                "user-1732005878495"
+              ],
+              "dislikes": []
+            }
+          ]
+        },
+        {
+          "stepNumber": 2,
+          "name": "Set Trip Dates",
+          "details": "Choose start and end dates.",
+          "data": {
+            "startDate": "2023-12-01",
+            "endDate": "2023-12-10"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 3,
+          "name": "Set Budget",
+          "details": "Define the trip's budget.",
+          "data": {
+            "budget": 2000
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 4,
+          "name": "Book Accommodation",
+          "details": "Add accommodation details.",
+          "data": {
+            "accommodations": [
+              {
+                "name": "Mountain Lodge",
+                "address": "123 Alpine Road, Alps",
+                "price": 500
+              }
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 5,
+          "name": "Set Transport",
+          "details": "Define transportation for the trip.",
+          "data": {
+            "transport": {
+              "type": "Car",
+              "provider": "Hertz",
+              "price": 300
+            }
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 6,
+          "name": "Key Activities",
+          "details": "List key activities planned.",
+          "data": {
+            "activities": [
+              "Hiking",
+              "Skiing",
+              "Photography"
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 7,
+          "name": "Prepare & Pack",
+          "details": "List items to prepare and pack.",
+          "data": {
+            "items": [
+              "Jackets",
+              "Ski Gear",
+              "Snacks"
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 8,
+          "name": "Confirm Plan",
+          "details": "Review and confirm all steps.",
+          "data": {
+            "confirmed": true
+          },
+          "comments": []
+        }
+      ],
+      "status": "in-progress"
+    },
+    {
+      "id": "unique-planning-id2",
+      "title": "Trip to the Alps",
+      "description": "A beautiful trip through the Alps...",
+      "datePosted": "2023-10-22T18:25:43.511Z",
+      "destination": "Alps, Switzerland",
+      "userId": "user-1731497982806",
+      "groupId": "cdb5",
+      "members": [
+        "user-1731497982806",
+        "user-1731568563064",
+        "user-1732005878495"
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Pick Destination",
+          "details": "Enter the destination for the trip.",
+          "data": {
+            "destination": "Alps, Switzerland"
+          },
+          "comments": [
+            {
+              "id": "comment-id-1",
+              "userId": "user-1731568563064",
+              "comment": "Great choice!",
+              "timestamp": "2023-10-23T18:25:43.511Z",
+              "likes": [
+                "user-1732005878495"
+              ],
+              "dislikes": []
+            }
+          ]
+        },
+        {
+          "stepNumber": 2,
+          "name": "Set Trip Dates",
+          "details": "Choose start and end dates.",
+          "data": {
+            "startDate": "2023-12-01",
+            "endDate": "2023-12-10"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 3,
+          "name": "Set Budget",
+          "details": "Define the trip's budget.",
+          "data": {
+            "budget": 2000
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 4,
+          "name": "Book Accommodation",
+          "details": "Add accommodation details.",
+          "data": {
+            "accommodations": [
+              {
+                "name": "Mountain Lodge",
+                "address": "123 Alpine Road, Alps",
+                "price": 500
+              }
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 5,
+          "name": "Set Transport",
+          "details": "Define transportation for the trip.",
+          "data": {
+            "transport": {
+              "type": "Car",
+              "provider": "Hertz",
+              "price": 300
+            }
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 6,
+          "name": "Key Activities",
+          "details": "List key activities planned.",
+          "data": {
+            "activities": [
+              "Hiking",
+              "Skiing",
+              "Photography"
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 7,
+          "name": "Prepare & Pack",
+          "details": "List items to prepare and pack.",
+          "data": {
+            "items": [
+              "Jackets",
+              "Ski Gear",
+              "Snacks"
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 8,
+          "name": "Confirm Plan",
+          "details": "Review and confirm all steps.",
+          "data": {
+            "confirmed": true
+          },
+          "comments": []
+        }
+      ],
+      "status": "in-progress"
+    },
+    {
+      "id": "unique-planning-id3",
+      "title": "Trip to the Alps",
+      "description": "A beautiful trip through the Alps...",
+      "datePosted": "2023-10-22T18:25:43.511Z",
+      "destination": "Alps, Switzerland",
+      "userId": "user-1731497982806",
+      "groupId": "cdb5",
+      "members": [
+        "user-1731497982806",
+        "user-1731568563064",
+        "user-1732005878495"
+      ],
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Pick Destination",
+          "details": "Enter the destination for the trip.",
+          "data": {
+            "destination": "Alps, Switzerland"
+          },
+          "comments": [
+            {
+              "id": "comment-id-1",
+              "userId": "user-1731568563064",
+              "comment": "Great choice!",
+              "timestamp": "2023-10-23T18:25:43.511Z",
+              "likes": [
+                "user-1732005878495"
+              ],
+              "dislikes": []
+            }
+          ]
+        },
+        {
+          "stepNumber": 2,
+          "name": "Set Trip Dates",
+          "details": "Choose start and end dates.",
+          "data": {
+            "startDate": "2023-12-01",
+            "endDate": "2023-12-10"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 3,
+          "name": "Set Budget",
+          "details": "Define the trip's budget.",
+          "data": {
+            "budget": 2000
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 4,
+          "name": "Book Accommodation",
+          "details": "Add accommodation details.",
+          "data": {
+            "accommodations": [
+              {
+                "name": "Mountain Lodge",
+                "address": "123 Alpine Road, Alps",
+                "price": 500
+              }
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 5,
+          "name": "Set Transport",
+          "details": "Define transportation for the trip.",
+          "data": {
+            "transport": {
+              "type": "Car",
+              "provider": "Hertz",
+              "price": 300
+            }
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 6,
+          "name": "Key Activities",
+          "details": "List key activities planned.",
+          "data": {
+            "activities": [
+              "Hiking",
+              "Skiing",
+              "Photography"
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 7,
+          "name": "Prepare & Pack",
+          "details": "List items to prepare and pack.",
+          "data": {
+            "items": [
+              "Jackets",
+              "Ski Gear",
+              "Snacks"
+            ]
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 8,
+          "name": "Confirm Plan",
+          "details": "Review and confirm all steps.",
+          "data": {
+            "confirmed": true
+          },
+          "comments": []
+        }
+      ],
+      "status": "completed"
+    },
+    {
+      "id": "57ad",
+      "groupId": "cdb5",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Pick a Destination",
+          "details": "Enter destination...",
+          "data": {
+            "input": "aaaaa"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 2,
+          "name": "Set Dates",
+          "details": "Enter start and end dates...",
+          "data": {
+            "input": "ssssss"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 3,
+          "name": "Set a Budget",
+          "details": "Enter budget amount...",
+          "data": {
+            "input": "dddddd"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 4,
+          "name": "Book Accommodation",
+          "details": "Enter accommodation details...",
+          "data": {
+            "input": "fffffff"
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 5,
+          "name": "Arrange Transport",
+          "details": "Enter transport details...",
+          "data": {
+            "input": ""
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 6,
+          "name": "Plan Key Activities",
+          "details": "Enter key activities...",
+          "data": {
+            "input": ""
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 7,
+          "name": "Prepare & Pack",
+          "details": "Enter packing notes...",
+          "data": {
+            "input": ""
+          },
+          "comments": []
+        },
+        {
+          "stepNumber": 8,
+          "name": "Review and Save",
+          "details": "",
+          "data": {
+            "input": ""
+          },
+          "comments": []
+        }
+      ],
+      "status": "in-progress"
+    }
+  ]
+}
